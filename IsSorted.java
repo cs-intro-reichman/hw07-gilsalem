@@ -1,21 +1,34 @@
 public class IsSorted {
 
-    // Public function: called by the user
+    public static void main(String[] args) {
+  
+        if (args.length > 0) {
+            int[] arr = new int[args.length];
+            for (int i = 0; i < args.length; i++) {
+                arr[i] = Integer.parseInt(args[i]);
+            }
+            System.out.println(isSorted(arr));
+        }
+    }
+
+   
     public static boolean isSorted(int[] a) {
+      
         return isSorted(a, 0);
     }
 
-    // Helper recursive function
+  
     private static boolean isSorted(int[] a, int i) {
-        //// Replace the following statement with your code
-        return false; 
-    }
 
-    public static void main(String[] args) {
-        int[] a = {1, 2, 2, 5};
-        System.out.println(isSorted(a)); // true
+        if (i >= a.length - 1) {
+            return true;
+        }
 
-        int[] b = {1, 3, 2};
-        System.out.println(isSorted(b)); // false
+     
+        if (a[i] > a[i + 1]) {
+            return false;
+        }
+
+        return isSorted(a, i + 1);
     }
 }
